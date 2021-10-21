@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 align="center">Your tasks:</h1>
+    {% if list %}
+        {% for task in list %}
+            <div class = "alert alert-warning mt-2">
+                <h3>{{task.task_name}}</h3>
+                <p>{{task.descriptions}}
+                <p>owner: {{task.owner}}
+                <a class="ui" href="/delete/{{ task.id }}">Delete</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p align="center">You have no tasks</p>
+    {% endif %}
+{% endblock %}
+
